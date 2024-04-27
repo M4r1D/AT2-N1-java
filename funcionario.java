@@ -10,11 +10,11 @@ investir 20%atualizar conta salarial
 
 package AT2_N1;
 
-public class funcionario {
-	String nome_f;
-	String cpf;
-	String conta_f;
-	String conta_fi;
+public class funcionario extends Thread {
+	private Loja loja;
+	private String nome_f;
+	private String conta_f;
+	private String conta_fi;
 	
 	//construtores
 	public funcionario() {
@@ -23,18 +23,18 @@ public class funcionario {
 	public funcionario(String nome_f) {
 		this.nome_f=nome_f;
 	}
-	public funcionario(String nome_f,String cpf) {
+	public funcionario(String nome_f,Loja loja) {
 		this.nome_f=nome_f;
-		this.cpf=cpf;
+		this.loja=loja;
 	}
-	public funcionario(String nome_f,String cpf,String conta_f) {
+	public funcionario(String nome_f,Loja loja,String conta_f) {
 		this.nome_f=nome_f;
-		this.cpf=cpf;
+		this.loja=loja;
 		this.conta_f=conta_f;
 	}
-	public funcionario(String nome_f,String cpf,String conta_f, String conta_fi) {
+	public funcionario(String nome_f,Loja loja,String conta_f, String conta_fi) {
 		this.nome_f=nome_f;
-		this.cpf=cpf;
+		this.loja=loja;
 		this.conta_f=conta_f;
 		this.conta_fi=conta_fi;
 	}
@@ -42,8 +42,8 @@ public class funcionario {
 	public String getNome_f() {
 		return nome_f;
 	}
-	public String getCpf() {
-		return cpf;
+	public Loja getLoja() {
+		return loja;
 	}
 	public String getConta_f() {
 		return conta_f;
@@ -54,8 +54,8 @@ public class funcionario {
 	public void setNome_f(String nome_f) {
 		this.nome_f=nome_f;
 	}
-	public void setCpf(String cpf) {
-		this.cpf=cpf;
+	public void setLoja(Loja loja) {
+		this.loja=loja;
 	}
 	public void setConta_f(String conta_f) {
 		this.conta_f=conta_f;
@@ -63,6 +63,7 @@ public class funcionario {
 	public void setConta_fi(String conta_fi) {
 		this.conta_fi=conta_fi;
 	}
+	
 	
 	//métodos receber salario - investir 20%
 	

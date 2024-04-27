@@ -1,64 +1,50 @@
 package AT2_N1;
 
 public class Conta{
-	String nome_cli;
-	String num_conta;
-	String banco;
-	float saldo;
+	private String num_conta;
+	private Banco banco;
+	private double saldo;
 	
 	//construtores
 	public Conta() {
 		
 	}
-	public Conta(String nome) {
-		this.nome_cli=nome;
-	}
-	public Conta(String nome_cli,String num_conta) {
-		this.nome_cli=nome_cli;
+	public Conta(String num_conta) {
 		this.num_conta=num_conta;
 	}
-	public Conta(String nome_cli,String num_conta,String banco) {
-		this.nome_cli=nome_cli;
+	public Conta(String num_conta,Banco banco) {
 		this.num_conta=num_conta;
 		this.banco=banco;
 	}
-	public Conta(String nome_cli,String num_conta,String banco, float saldo) {
-		this.nome_cli=nome_cli;
+	public Conta(String num_conta,Banco banco, float saldo) {
 		this.num_conta=num_conta;
 		this.banco=banco;
 		this.saldo=saldo;
 	}
 	
 	//get e set
-	public String getNome() {
-		return nome_cli;
-	}
 	public String getNum_conta() {
 		return num_conta;
 	}
-	public String getBanco() {
+	public Banco getBanco() {
 		return banco;
 	}
-	public float getSaldo() {
+	public double getSaldo() {
 		return saldo;
-	}
-	public void setNome_cli(String nome_cli) {
-		this.nome_cli=nome_cli;
 	}
 	public void setNum_conta(String num_conta) {
 		this.num_conta=num_conta;
 	}
-	public void setBanco(String banco) {
+	public void setBanco(Banco banco) {
 		this.banco=banco;
 	}
-	public void setSaldo(float saldo) {
+	public void setSaldo(double saldo) {
 		this.saldo=saldo;
 	}
 	
-	//metodo - syncronize
-	
-	
-	
-	
-	
+	//metcodo - syncronize
+	public synchronized void transacao(double valor) {
+        saldo += valor;
+    }
+
 }
