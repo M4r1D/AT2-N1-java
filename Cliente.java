@@ -9,8 +9,8 @@ package AT2_N1;
 
 public class Cliente extends Thread{
 	private String nome;
-	private int saldo = 1000;
 	private Conta conta;
+	private float saldo = 1000;
 	
 	//construtores
 	public Cliente() {
@@ -24,7 +24,7 @@ public class Cliente extends Thread{
 		this.nome=nome;
 		this.conta=conta;
 	}
-	public Cliente(String nome,Conta conta,int Saldo) {
+	public Cliente(String nome,Conta conta, float saldo) {
 		this.nome=nome;
 		this.conta=conta;
 		this.saldo=saldo;
@@ -44,34 +44,45 @@ public class Cliente extends Thread{
 		this.conta=conta;
 	}
 
-	public int getSaldo() {
+	public float getSaldo() {
 		return saldo;
 	}
 
-	public void setSaldo(int saldo) {
+	public void setSaldo(float saldo) {
 		this.saldo = saldo;
 	}
 	
 	
 	//métodos - realizar compras 
-	public void run() {
-			int count = 5;
-			int i = 0;
-			while(i < count) {
-				if(this.saldo>200) {
-					this.saldo -=200;
-					i++;
-					System.out.println(this.nome + "seu saldo é R$"+ this.saldo);
-				}
-				else {
-					System.out.println("Saldo indisponível!");
-					break;
+
+	public void run(Loja[] loja1) {
+		for(Loja loja: loja1) {
+			while (saldo>0) {
+				double valor = Math.random() < 0.5 ? 100 : 200;
+				Comprar(loja,(int) valor, null);
+				
+				try {
+					Thread.sleep(100);
+				} catch (InterruptedException e) {
+					e.printStackTrace();
 				}
 			}
+		}
+	}
+	public void Comprar(Loja loja1, int valor, Banco banco){
+		if(saldo>=valor) {
+			saldo-=valor;
+			banco.Transferencia(this, loja1, valor);
+			System.out.println("Cliente"+nome+"realizou compra:"+ valor);
+		} else {
+			System.out.println("Saldo insuficiente!!!");
+		}
+		
 	}
 	
 	void exibeSaldo() {
 		System.out.println(this.nome + "seu saldo é R$"+ this.saldo);
 	}
+	
 	
 }

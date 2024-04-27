@@ -7,9 +7,9 @@ package AT2_N1;
 
 public class Banco {
 	//atributos
-	String nome;
-	int num_agencia;
-	//String contas;
+	private String nome;
+	private int num_agencia;
+	private int transacoes;
 	
 	// construtores
 	public Banco() {
@@ -25,7 +25,11 @@ public class Banco {
 	public Banco(String nome, int num_agencia, String contas) {
 		this.nome = nome;
 		this.num_agencia = num_agencia;
-		//this.contas= contas;
+	}
+	public Banco(String nome, int num_agencia, String contas, int transacoes) {
+		this.nome = nome;
+		this.num_agencia = num_agencia;
+		this.transacoes=transacoes;
 	}
 	
 	//get e set
@@ -35,24 +39,30 @@ public class Banco {
 	public int getNum_agencia() {
 		return num_agencia;
 	}
-	/*public String getContas() {
-		return contas;
-	}*/
+	public int getTransacoes() {
+		return transacoes;
+	}
 	public void setNome(String nome) {
 		this.nome=nome;
 	}
 	public void setNum_agenci(int num_agencia) {
 		this.num_agencia=num_agencia;
 	}
-	/*public void setContas(String contas) {
-		this.contas=contas;
-	}*/	
+	public void setTransacoes(int transacoes) {
+		this.transacoes=transacoes;
+	}
+	
 	//synchronyze --> transações de forma síncron
 	
-	    public static synchronized void realizarTransferencia(Conta origem, Conta destino, double valor) {
-	        if (origem.getSaldo() >= valor)
-	            destino.transacao(valor);
-	            System.out.println("Transferência de R$" + valor);
+	    public synchronized void Transferencia(Conta conta_o, Conta conta_d, int saldo, double valor){
+	        if (conta_o.getSaldo() >= valor) {
+	        	conta_o.setSaldo((int) (conta_d.getSaldo()+valor));
 	        }
+	        System.out.println("Transferência de R$:" + valor);
+	    }
+		public void Transferencia(Cliente cliente, Loja loja1, int valor) {
+			// TODO Auto-generated method stub
+			
+		}
 	
 }

@@ -13,7 +13,7 @@ package AT2_N1;
 public class funcionario extends Thread {
 	private Loja loja;
 	private String nome_f;
-	private String conta_f;
+	private String conta_d;
 	private String conta_fi;
 	
 	//construtores
@@ -27,15 +27,15 @@ public class funcionario extends Thread {
 		this.nome_f=nome_f;
 		this.loja=loja;
 	}
-	public funcionario(String nome_f,Loja loja,String conta_f) {
+	public funcionario(String nome_f,Loja loja,String conta_d) {
 		this.nome_f=nome_f;
 		this.loja=loja;
-		this.conta_f=conta_f;
+		this.conta_d=conta_d;
 	}
-	public funcionario(String nome_f,Loja loja,String conta_f, String conta_fi) {
+	public funcionario(String nome_f,Loja loja,String conta_d, String conta_fi) {
 		this.nome_f=nome_f;
 		this.loja=loja;
-		this.conta_f=conta_f;
+		this.conta_d=conta_d;
 		this.conta_fi=conta_fi;
 	}
 	//get e set
@@ -45,8 +45,8 @@ public class funcionario extends Thread {
 	public Loja getLoja() {
 		return loja;
 	}
-	public String getConta_f() {
-		return conta_f;
+	public String getConta_d() {
+		return conta_d;
 	}
 	public String getConta_fi() {
 		return conta_fi;
@@ -57,8 +57,8 @@ public class funcionario extends Thread {
 	public void setLoja(Loja loja) {
 		this.loja=loja;
 	}
-	public void setConta_f(String conta_f) {
-		this.conta_f=conta_f;
+	public void setConta_d(String conta_d) {
+		this.conta_d=conta_d;
 	}
 	public void setConta_fi(String conta_fi) {
 		this.conta_fi=conta_fi;
