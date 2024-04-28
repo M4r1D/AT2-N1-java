@@ -70,14 +70,18 @@ public class Cliente extends Thread{
 		}
 	}
 	public void Comprar(Loja loja1, int valor, Banco banco){
-		if(saldo>=valor) {
-			saldo-=valor;
-			banco.Transferencia(this, loja1, valor);
-			System.out.println("Cliente"+nome+"realizou compra:"+ valor);
-		} else {
-			System.out.println("Saldo insuficiente!!!");
-		}
-		
+		int i =0;
+		int cont = 6;
+		while(i<cont) {
+			if(saldo>=valor) {
+				saldo-=valor;
+				i++;
+				banco.Transferencia(this, loja1, valor);
+				System.out.println("Cliente"+nome+"realizou compra:"+ valor);
+			} else {
+				System.out.println("Saldo insuficiente!!");
+			}
+		} 
 	}
 	
 	void exibeSaldo() {

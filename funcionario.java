@@ -11,61 +11,81 @@ investir 20%atualizar conta salarial
 package AT2_N1;
 
 public class funcionario extends Thread {
-	private Loja loja;
+	private int salario;
 	private String nome_f;
-	private String conta_d;
+	private String conta;
 	private String conta_fi;
+	private Loja loja;
 	
 	//construtores
 	public funcionario() {
 		
 	}
-	public funcionario(String nome_f) {
+    public funcionario(int salario) {
+		this.salario=salario;
+	}
+    public funcionario(int salario, String nome_f) {
+		this.salario=salario;
 		this.nome_f=nome_f;
 	}
-	public funcionario(String nome_f,Loja loja) {
+    public funcionario(int salario, String nome_f,String conta) {
+		this.salario=salario;
 		this.nome_f=nome_f;
-		this.loja=loja;
+		this.conta=conta;
 	}
-	public funcionario(String nome_f,Loja loja,String conta_d) {
+    public funcionario(int salario, String nome_f,String conta, String conta_fi) {
+		this.salario=salario;
 		this.nome_f=nome_f;
-		this.loja=loja;
-		this.conta_d=conta_d;
-	}
-	public funcionario(String nome_f,Loja loja,String conta_d, String conta_fi) {
-		this.nome_f=nome_f;
-		this.loja=loja;
-		this.conta_d=conta_d;
+		this.conta=conta;
 		this.conta_fi=conta_fi;
 	}
+    public funcionario(int salario, String nome_f,String conta, String conta_fi, Loja loja) {
+		this.salario=salario;
+		this.nome_f=nome_f;
+		this.conta=conta;
+		this.conta_fi=conta_fi;
+		this.loja=loja;
+	}
 	//get e set
+    public int getSalario() {
+		return salario;
+	}
 	public String getNome_f() {
 		return nome_f;
 	}
-	public Loja getLoja() {
-		return loja;
-	}
-	public String getConta_d() {
-		return conta_d;
+	public String getConta() {
+		return conta;
 	}
 	public String getConta_fi() {
 		return conta_fi;
 	}
+	public Loja getLoja() {
+		return loja;
+	}
+	public void setSalario(int salario) {
+		this.salario=salario;
+	}
 	public void setNome_f(String nome_f) {
 		this.nome_f=nome_f;
 	}
-	public void setLoja(Loja loja) {
-		this.loja=loja;
-	}
-	public void setConta_d(String conta_d) {
-		this.conta_d=conta_d;
+	public void setConta(String conta) {
+		this.conta=conta;
 	}
 	public void setConta_fi(String conta_fi) {
 		this.conta_fi=conta_fi;
+	}	
+	public void setLoja(Loja loja) {
+		this.loja=loja;
 	}
 	
 	
 	//métodos receber salario - investir 20%
+	public void Receber(Loja loja, Conta conta_f) {
+		if(loja.getConta_l().getSaldo() >= salario) {
+		loja.getConta_l().setSaldo(loja.getConta_l().getSaldo());		}
+		conta_f.setSaldo(conta_f.getSaldo()); 
+		System.out.println("recebeu:" +salario);
+	}
 	
 	
 	

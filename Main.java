@@ -28,10 +28,10 @@ public class Main {
 		Cliente cliente4 = new Cliente("Amanda", cont4, 1000);
 		Cliente cliente5 = new Cliente("José", cont5, 1000);
 		
-		funcionario func1 = new funcionario("Fernanda",loja1,"06","066");
-		funcionario func2 = new funcionario("João", loja1, "07", "077");
-		funcionario func3 = new funcionario("Claudia", loja2,"08", "088");
-		funcionario func4 = new funcionario("Sabrina", loja2,"09", "099");
+		funcionario func1 = new funcionario(0,"Fernanda", "06", "066", loja1);
+		funcionario func2 = new funcionario(0, "João", "07", "077", loja1);
+		funcionario func3 = new funcionario(0,"Claudia", "08","088", loja2 );
+		funcionario func4 = new funcionario(0,"Sabrina","09","099",loja2);
 		
 		
 		
@@ -92,6 +92,9 @@ public class Main {
 
 		System.out.println("CAIXA:");
 		loja1.Receber();
+		
+		System.out.println("SALARIO FUNCIONARIO");
+		func1.Receber(loja1, cont6);
 	}
 }
 
